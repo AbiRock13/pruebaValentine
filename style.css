@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #ffe6f0;
+  overflow: hidden;
+}
+
+.container {
+  margin-top: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+#yesBtn {
+  background-color: #ff4d88;
+  color: white;
+}
+
+#noBtn {
+  background-color: #ccc;
+}
+
+/* Corazones flotando */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 20px;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+
+/* Pantalla final */
+#finalScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff4d88;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 3;
+}
+
+#finalScreen.show {
+  opacity: 1;
+  pointer-events: all;
+  animation: zoomIn 1s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
